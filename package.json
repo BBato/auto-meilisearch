@@ -1,0 +1,32 @@
+{
+  "name": "sourced-scripts",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "env": "node ../utils/env-vault volcano-env /packages/scripts",
+    "build": "babel src -d dist --extensions \".js,.jsx,.ts,.tsx\" --ignore \"**/*.test.js\" ",
+    "dev": "yarn env && nodemon --ignore \"dist/*\" --watch \"src/**\" --ext \"ts,js\" --exec yarn build ",
+    "test:refresh-market-map": "yarn env && yarn build && node -r dotenv/config ./dist/JobConfigurations/refreshMarketMap.js",
+    "test:github": "yarn env && yarn build && node -r dotenv/config ./dist/Github/_tests/index.js"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/plugin-transform-typescript": "^7.13.0",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/mongoose": "^5.10.4",
+    "dotenv": "^8.2.0"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.13",
+    "@types/node": "^15.12.4",
+    "airtable": "^0.10.1",
+    "meilisearch": "0.17.0",
+    "mongoose": "^5.12.2",
+    "uuid": "^8.3.2"
+  }
+}
