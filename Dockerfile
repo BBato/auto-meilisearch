@@ -3,4 +3,4 @@ RUN apk --no-cache add curl
 
 RUN curl -L https://install.meilisearch.com | sh
 RUN ls meilisearch
-CMD ["meilisearch"]
+CMD ["./meilisearch/meilisearch"]
