@@ -1,1 +1,4 @@
-FROM getmeili/meilisearch:v0.21.0-alpha.5
+FROM node:alpine
+
+RUN curl -L https://install.meilisearch.com | sh
+CMD ["./meilisearch"]
