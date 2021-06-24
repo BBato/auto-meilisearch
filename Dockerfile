@@ -1,6 +1,3 @@
-FROM node:alpine
-RUN apk --no-cache add curl
-
+FROM amd64/node:12
 RUN curl -L https://install.meilisearch.com | sh
-
-CMD ["./meilisearch/meilisearch"]
+CMD ["./meilisearch"]
